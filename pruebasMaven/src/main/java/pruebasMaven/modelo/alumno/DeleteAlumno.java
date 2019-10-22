@@ -15,7 +15,7 @@ public class DeleteAlumno {
 		
 		entityManager.getTransaction().begin();
 		//le pido a la base de datos que me busque el alumno
-		AlumnoBean alumnoBorrar = entityManager.find(AlumnoBean.class, alumno.getId());
+		AlumnoBean alumnoBorrar = entityManager.find(AlumnoBean.class, alumno.getIdAlumno());
 		if(alumnoBorrar!=null) {
 			entityManager.remove(alumnoBorrar);
 		}

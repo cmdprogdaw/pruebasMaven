@@ -9,7 +9,7 @@ import pruebasMaven.negocio.AsignaturaBean;
 public class Start {
 
 	public static void main(String[] args) {
-		/*
+		
 		AsignaturaBean tic = new AsignaturaBean();
 		tic.setNombre("Informática");
 		
@@ -19,32 +19,26 @@ public class Start {
 		CreateAsignatura createAsignatura = new CreateAsignatura();
 		createAsignatura.create(tic);
 		createAsignatura.create(lengua);
-		*/
 		
 		
-		AlumnoBean adri = new AlumnoBean();
-		adri.setId(5L);
 		
-		DeleteAlumno delete = new DeleteAlumno();
-		delete.delete(adri);
-		
-		
-		/*
 		AlumnoBean cris = new AlumnoBean();
 		cris.setNombre("Cristina");
 		cris.setTelefono("666333444");
 		cris.setCiudad("Mieres");
+		cris.setAsignatura(tic);
 		
 		AlumnoBean adri = new AlumnoBean();
 		adri.setNombre("Adrián");
 		adri.setTelefono("667755443");
 		adri.setCiudad("Llanera");
+		adri.setAsignatura(tic);
 		
 		
 		CreateAlumno create = new CreateAlumno();
 		create.create(cris);
 		create.create(adri);
-		*/
+		
 		
 	}
 
