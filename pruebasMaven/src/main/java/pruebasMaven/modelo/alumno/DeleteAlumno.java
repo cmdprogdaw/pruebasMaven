@@ -20,7 +20,8 @@ public class DeleteAlumno {
 			entityManager.remove(alumnoBorrar);
 		}
 		entityManager.getTransaction().commit();
-		entityManager.close();
+	
+		//entityManager.close();
 		
 	}
 }

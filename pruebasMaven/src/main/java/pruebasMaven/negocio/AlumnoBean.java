@@ -40,7 +40,6 @@ public class AlumnoBean {
 	
 	
 	
-	
 	public AsignaturaBean getAsignatura() {
 		return asignatura;
 	}
@@ -71,5 +70,14 @@ public class AlumnoBean {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "AlumnoBean [idAlumno=" + idAlumno + ", nombre=" + nombre + ", telefono=" + telefono + ", ciudad="
+				+ ciudad + "]";
+	}
+
 	
 }
