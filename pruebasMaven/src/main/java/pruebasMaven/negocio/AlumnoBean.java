@@ -1,12 +1,14 @@
 package pruebasMaven.negocio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,20 +34,29 @@ public class AlumnoBean {
 	 * y hay q darle info al jpa orm hibernate que me referencie de que eso es un enlace 
 	 * con otra asignatura
 	 */
-	@ManyToOne //muchos alumnos para una asignatura
-	@JoinColumn(name="FK_asignatura") //eso que te encuentras aqui va a estar en otra tabla
-	private AsignaturaBean asignatura;
+//	@ManyToOne //muchos alumnos para una asignatura
+//	@JoinColumn(name="FK_asignatura") //eso que te encuentras aqui va a estar en otra tabla
+//	private AsignaturaBean asignatura;
+	
+	@ManyToMany
+	private List<AsignaturaBean> asignaturas = new ArrayList<AsignaturaBean>();
 	
 	
 	
 	
 	
-	public AsignaturaBean getAsignatura() {
-		return asignatura;
+	public List<AsignaturaBean> getAsignaturas() {
+		return asignaturas;
 	}
-	public void setAsignatura(AsignaturaBean asignatura) {
-		this.asignatura = asignatura;
+	public void setAsignaturas(List<AsignaturaBean> asignaturas) {
+		this.asignaturas = asignaturas;
 	}
+	//	public AsignaturaBean getAsignatura() {
+//		return asignatura;
+//	}
+//	public void setAsignatura(AsignaturaBean asignatura) {
+//		this.asignatura = asignatura;
+//	}
 	public long getIdAlumno() {
 		return idAlumno;
 	}

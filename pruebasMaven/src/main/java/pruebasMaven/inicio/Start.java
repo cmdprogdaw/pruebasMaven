@@ -1,12 +1,11 @@
 package pruebasMaven.inicio;
 
 import pruebasMaven.modelo.alumno.CreateAlumno;
-import pruebasMaven.modelo.alumno.DeleteAlumno;
 import pruebasMaven.modelo.asignatura.CreateAsignatura;
-import pruebasMaven.modelo.profesor.CreateProfesor;
+//import pruebasMaven.modelo.profesor.CreateProfesor;
 import pruebasMaven.negocio.AlumnoBean;
 import pruebasMaven.negocio.AsignaturaBean;
-import pruebasMaven.negocio.ProfesorBean;
+//import pruebasMaven.negocio.ProfesorBean;
 import pruebasMaven.util.Connection;
 
 public class Start {
@@ -44,9 +43,9 @@ public class Start {
 		tic.addAlumno(adri);
 		
 		
-		ProfesorBean marcos = new ProfesorBean();
-		marcos.setNombre("Marcos");
-		marcos.setDni("72745432A");
+//		ProfesorBean marcos = new ProfesorBean();
+//		marcos.setNombre("Marcos");
+//		marcos.setDni("72745432A");
 		
 		
 		
@@ -62,17 +61,20 @@ public class Start {
 		createAlumno.create(adri);
 		
 		
-		CreateProfesor createProfesor = new CreateProfesor();
-		createProfesor.create(marcos);
-		
-		marcos.addAsignatura(tic);
+//		CreateProfesor createProfesor = new CreateProfesor();
+//		createProfesor.create(marcos);
+//		
+//		marcos.addAsignatura(tic);
+//		
+//		
+//		marcos.setNombre("Carlos");
 		
 		
 		AsignaturaBean nueva = Connection.getEntityManager().find(AsignaturaBean.class, 1L);
 		System.out.println(nueva);
 		
-		ProfesorBean nuevo = Connection.getEntityManager().find(ProfesorBean.class, 1L);
-		System.out.println(nuevo);
+//		ProfesorBean nuevo = Connection.getEntityManager().find(ProfesorBean.class, 1L);
+//		System.out.println(nuevo);
 		
 		Connection.getEntityManager().close();
 		

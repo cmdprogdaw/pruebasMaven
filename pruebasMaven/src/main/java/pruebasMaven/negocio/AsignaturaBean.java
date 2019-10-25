@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import java.util.List;
@@ -29,15 +27,15 @@ public class AsignaturaBean {
 	private String nombre;
 
 	
-	@OneToMany(mappedBy = "asignatura") //se llama igual que el campo del AlumnoBean pq es un objeto
+	@ManyToMany(mappedBy = "asignaturas") //se llama igual que el campo del AlumnoBean pq es un objeto
 	private List<AlumnoBean> alumnos = new ArrayList<AlumnoBean>();
 	//importar List con java.util
 	
 	
-	//muchas asignaturas estan impartidas por un profesor
-	@ManyToOne 
-	@JoinColumn(name="FK_profesor")
-	private ProfesorBean profesor;
+//	//una asignatura esta impartida por un profesor
+//	@ManyToOne 
+//	@JoinColumn(name="FK_profesor")
+//	private ProfesorBean profesor;
 	
 	
 	
@@ -48,7 +46,15 @@ public class AsignaturaBean {
 		if(!alumnos.contains(alumno)) {
 			
 			alumnos.add(alumno);
-			alumno.setAsignatura(this);
+			
+			//decirle al alumno que añada esta asignatura
+			List<AsignaturaBean> asignaturas = alumno.getAsignaturas();
+			if(!asignaturas.contains(this)) {
+				
+				asignaturas.add(this);
+			}
+			
+			//alumno.setAsignatura(this);
 		}
 		
 		
@@ -76,15 +82,15 @@ public class AsignaturaBean {
 		this.alumnos = alumnos;
 	}
 
-	public ProfesorBean getProfesor() {
-		return profesor;
-	}
-
-
-
-	public void setProfesor(ProfesorBean profesor) {
-		this.profesor = profesor;
-	}
+//	public ProfesorBean getProfesor() {
+//		return profesor;
+//	}
+//
+//
+//
+//	public void setProfesor(ProfesorBean profesor) {
+//		this.profesor = profesor;
+//	}
 
 
 
